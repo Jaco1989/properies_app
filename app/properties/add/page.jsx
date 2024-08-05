@@ -1,4 +1,4 @@
-const page = () => {
+const PropertyAddPage = () => {
   return (
     <div>
       Add Property
@@ -6,4 +6,4 @@ const page = () => {
   )
 }
 
-export default page
+export default PropertyAddPage
