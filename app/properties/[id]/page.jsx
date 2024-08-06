@@ -5,6 +5,10 @@ import { useParams } from 'next/navigation';
 import { fetchProperty } from '@/utils/requests';
 import Spinner from '@/components/Spinner';
 import { FaArrowLeft } from 'react-icons/fa'
+import PropertyHeaderImage from '@/components/PropertyHeaderImage';
+import BookmarkButton from '@/components/BookmarkButton';
+import ShareButtons from '@/components/ShareButtons';
+import PropertyContactForm from '@/components/PropertyContactForm';
 
 const PropertyPage = () => {
 
@@ -41,7 +45,34 @@ const PropertyPage = () => {
 
     return (
       <div>
-        <h1>PropertyPage Home</h1>
+        {loading && <Spinner loading={loading} />}
+      {!loading && property && (
+        <>
+        <PropertyHeaderImage image={""} />
+          <section>
+            <div className='container m-auto py-6 px-6'>
+              <Link
+                href='/properties'
+                className='text-blue-500 hover:text-blue-600 flex items-center'
+              >
+                <FaArrowLeft className='mr-2' /> Back to Properties
+              </Link>
+            </div>
+          </section>
+
+          <section className='bg-blue-50'>
+            <div className='container m-auto py-10 px-6'>
+              <div className='grid grid-cols-1 md:grid-cols-70/30 w-full gap-6'>
+                <aside className='space-y-4'>
+                  <BookmarkButton/>
+                  <ShareButtons property={property}/>
+                  <PropertyContactForm/>
+                </aside>
+              </div>
+            </div>
+          </section>
+        </>
+      )}
       </div>
     )
   }
