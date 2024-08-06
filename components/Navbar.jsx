@@ -158,6 +158,8 @@ const Navbar = () => {
                                 alt=''
                                 width={40}
                                 height={40}
+                                priority
+                                sizes='100vw'
                             />
                             </button>
                         </div>
